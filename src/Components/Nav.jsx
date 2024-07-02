@@ -1,7 +1,8 @@
-import React from 'react'
+//Library
+// import { BeakerIcon } from '@heroicons/vue/24/solid'
 
 //rrd import
-import { NavLink } from 'react-router-dom'
+import { Form, NavLink } from 'react-router-dom'
 
 import logomark from '../assets/logomark.svg'
 
@@ -12,6 +13,23 @@ const Nav = ({userName}) => {
             <img src={logomark} alt="" />
             <span>Home Budget</span>
         </NavLink>
+        {
+          userName && (
+            <Form
+            method='post'
+            action='/logout'
+            onSubmit={(event) =>{
+              if (!confirm("Do you want to delete all data?")){
+                event.preventDefault()
+              }
+            }}>
+              <button type='submit' className='btn btn--warning'>
+                <span>Delete User</span>
+                {/* <BeakerIcon width={20}/> */}
+              </button>
+            </Form>
+          )
+        }
     </nav>
   )
 }
