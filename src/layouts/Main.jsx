@@ -19,14 +19,14 @@ export function MainLoader(){
 const Main = () => {
   const {userName} = useLoaderData();
   return (
-    <>
-    <Nav userName={userName}/>
-    <main>
-        <Outlet/>
-    </main>
-    <h1>Main</h1>
-    <img className="layout" src={wave} alt="" />
-    </>
+    <div className="layout">
+      <Nav userName={userName} />
+      <main>
+        <Outlet />
+      </main>
+      <img src={wave} alt="" />
+    </div>
+
   )
 }
 

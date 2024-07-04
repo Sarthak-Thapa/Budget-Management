@@ -2,7 +2,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 //Pages imports
-import Dashboard, { DashboardLoader } from './pages/Dashboard';
+import Dashboard, { dashboardAction, DashboardLoader } from './pages/Dashboard';
 import Error from './pages/Error';
 import Main, { MainLoader } from './layouts/Main';
 
@@ -21,6 +21,7 @@ const router = createBrowserRouter([
     errorElement: <Error/>,
     children:[{
       loader: DashboardLoader,
+      action: dashboardAction,
       path: "/",
       element: <Dashboard/>,
       errorElement: <Error/>
