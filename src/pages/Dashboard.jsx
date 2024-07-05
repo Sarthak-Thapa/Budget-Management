@@ -12,14 +12,13 @@ export function DashboardLoader(){
 
 export async function dashboardAction({request}){
   const data = await request.formData();
-  // console.log({data, request})
-  try{
-    const formData = Object.fromEntries(data)
+  const formData = Object.fromEntries(data)
+  try {
+    throw new Error('ya done')  // Custome error
     localStorage.setItem("userName", JSON.stringify(formData.userName))
-    return toast.success(`Welcome ${formData.userName}`)
-
-  }catch(e){
-    throw new error ("There was a problem creating your account!")
+    return toast.success(`Welcome, ${formData.userName}`)
+  } catch (e) {
+    throw new Error("There was a problem creating your account.")
   }
 }
 
