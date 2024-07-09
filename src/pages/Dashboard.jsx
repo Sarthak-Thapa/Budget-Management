@@ -2,7 +2,7 @@
 import { useLoaderData } from "react-router-dom";
 
 //Helper Functions
-import { createBudget, fetchData } from "../../helper";
+import { createBudget, fetchData, waait } from "../../helper";
 
 //Library
 import { toast} from "react-toastify";
@@ -19,6 +19,8 @@ export function DashboardLoader() {
 }
 
 export async function dashboardAction({ request }) {
+  //waiting 3 sec for creating budget
+  await waait();
   const data = await request.formData();
   const {_action, ...values} = Object.fromEntries(data);
   // console.log(_action) // Checking if the newUser form is working or not

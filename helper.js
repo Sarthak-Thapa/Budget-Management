@@ -4,6 +4,10 @@ export const fetchData = (key) => {
     return JSON.parse(localStorage.getItem(key));
 }
 
+//Manuall time pause for creating budgets
+export const waait = () => new Promise(
+    res => setTimeout(res, Math.random() * 3000)
+)
 
 //Generating color
 const generateRandomColor = () => {
