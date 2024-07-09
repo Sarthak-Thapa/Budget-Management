@@ -20,6 +20,7 @@ const AddBudgetForm = () => {
                 placeholder="e.g., Groceries"
                 required
               />
+              <input type="hidden" name='_action' value="createBudget" />
             </div>
             <div className="grid-xs">
               <label htmlFor="newBudgetAmount">Amount</label>
