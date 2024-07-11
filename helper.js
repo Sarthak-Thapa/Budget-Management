@@ -29,8 +29,23 @@ export const createBudget = ({name, amount}) => {
         color: generateRandomColor(),
     }
 
+
     // Checking if budget Exit
     const existingBudget = fetchData("budgets") ?? []
     return localStorage.setItem("budgets", JSON.stringify([...existingBudget, newItem]))    // adding both existing and newItmes
+}
+
+
+export const createExpense = ({name, amount, budgetId}) => {
+    const newItem = {
+        id: crypto.randomUUID(),    // same as math.random
+        name: name,
+        createdAt: Date.now(),      // milliseconds
+        amount: +amount,            //Cause it into number
+        budgetId: budgetId ,
+    }
+
+    const existingExpenses = fetchData("bexpenses") ?? []
+    return localStorage.setItem("expenses", JSON.stringify([...existingExpenses, newItem]))    // adding both existing and newItmes
 
 }
